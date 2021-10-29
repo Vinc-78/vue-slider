@@ -34,7 +34,7 @@ new Vue({
     immagineCorrente: 0
     
   },
-
+//metodi per avanzare indice e quindi spostare class=attiva
   methods: {
       precedente() {
           let preImmagine = this.immagineCorrente - 1;
@@ -52,6 +52,14 @@ new Vue({
         }
         this.immagineCorrente = succImmagine
     }
+  },
+//bonus tempificato
+  mounted() {
+      setInterval(() => {
+        this.precedente();
+
+      }, 3000);
+
   }
  
 });
