@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>carosello</title>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
 
 </head>
 
@@ -23,15 +23,18 @@
         <div id="container">
 
             <div class="row">
-                <div class="container-image">
-                    <img class="" src="img/01.jpg" alt="img 01">`;
+                <div class="container-image" 
+                
+                v-for="immagine, i in listaImmagini">
+                    <img :class="i===immagineCorrente ? 'attiva' : ' '"
+                    :src="immagine.url" :alt="'Img'+ (i+1)">
 
-                    <div class="box-info ">
+                    <div class="box-info ":class="i===immagineCorrente ? 'attiva' : ' '">
                         <div class="title">
-                            Titolo
+                            {{immagine.title}}
                         </div>
                         <div class="text">
-                            paragrago
+                            {{immagine.text}}
                         </div>
                     </div>
                 </div>
@@ -49,6 +52,8 @@
 
 
     </main>
+
+    <script src="js/script.js"></script>
 
 </body>
 
