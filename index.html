@@ -23,8 +23,10 @@
         <div id="container">
 
             <div class="row">
-                <div class="container-image" 
                 
+                <div class="container-image" 
+
+                           
                 v-for="immagine, i in listaImmagini">
                     <img :class="i===immagineCorrente ? 'attiva' : ' '"
                     :src="immagine.url" :alt="'Img'+ (i+1)">
@@ -41,7 +43,10 @@
                 <div class="aside">
 
                     <div class="freccia freccia-su"><i class="fas fa-angle-up"></i></div>
-                    <div class="anteprima "><img src="img/01.jpg" alt="img 01"></div>`
+                    <div class="anteprima " v-for="immagine, i in listaImmagini">
+                        <img :class="i===immagineCorrente ? 'attiva' : ' '"
+                        :src="immagine.url" :alt="'Img'+ (i+1)">
+                    </div>
                     <div class="freccia freccia-giu"><i class="fas fa-angle-down"></i></div>
 
                 </div>

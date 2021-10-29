@@ -10,10 +10,11 @@
       color: white;
       background-color: black;
       box-shadow: 10px 10px 15px rgba(128, 128, 128);
-      position: relative; }
+      }
 
 .container-image{height: 100%;
                  width: 80%;
+                 position: relative;
                  }
 
 .container-image>img {height: 100%;
@@ -66,7 +67,6 @@
 
 .freccia-giu{bottom:10px;}
 
-.container-image{position: relative;}
 
 .box-info {min-height: 100px;
            min-width: 200px;
