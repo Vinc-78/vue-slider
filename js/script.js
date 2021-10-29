@@ -34,6 +34,25 @@ new Vue({
     immagineCorrente: 0
     
   },
+
+  methods: {
+      precedente() {
+          let preImmagine = this.immagineCorrente - 1;
+
+          if(preImmagine<0) {
+              preImmagine = this.listaImmagini.length -1;
+          }
+          this.immagineCorrente = preImmagine
+      },
+      successiva() {
+        let succImmagine = this.immagineCorrente + 1;
+
+        if(succImmagine>this.listaImmagini.length -1) {
+            succImmagine = 0;
+        }
+        this.immagineCorrente = succImmagine
+    }
+  }
  
 });
 
