@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    
+
 
 </head>
 
@@ -24,31 +24,29 @@
         <div id="container">
 
             <div class="row">
-                
-                <div class="container-image" > 
+
+                <div class="container-image">
                     <template v-for="immagine, i in listaImmagini">
-                    <img :class="i===immagineCorrente ? 'attiva' : ' '"
-                    :src="immagine.url" :alt="'Img'+ (i+1)">
+                        <img :class="i===immagineCorrente ? 'attiva' : ' '" :src="immagine.url" :alt="'Img'+ (i+1)">
 
-                    <div class="box-info ":class="i===immagineCorrente ? 'attiva' : ' '">
-                        <div class="title">
-                            {{immagine.title}}
+                        <div class="box-info " :class="i===immagineCorrente ? 'attiva' : ' '">
+                            <div class="title">
+                                {{immagine.title}}
+                            </div>
+                            <div class="text">
+                                {{immagine.text}}
+                            </div>
                         </div>
-                        <div class="text">
-                            {{immagine.text}}
-                        </div>
-                    </div>
 
-                </template>
-                    
+                    </template>
+
                 </div>
-                <div class="aside">
+                <div class="aside ">
 
                     <div class="freccia freccia-su"><i class="fas fa-angle-up" @click="precedente"></i></div>
-                    <div class="anteprima " v-for="immagine, i in listaImmagini" 
-                    :class="i===immagineCorrente ? 'attiva' : ' '">
-                        <img :class="i===immagineCorrente ? 'attiva' : ' '"
-                        :src="immagine.url" :alt="'Img'+ (i+1)">
+                    <div class="anteprima " v-for="immagine, i in listaImmagini"
+                        :class="i===immagineCorrente ? 'attiva' : ' '">
+                        <img :class="i===immagineCorrente ? 'attiva' : ' '" :src="immagine.url" :alt="'Img'+ (i+1)">
                     </div>
                     <div class="freccia freccia-giu"><i class="fas fa-angle-down" @click="successiva"></i></div>
 
