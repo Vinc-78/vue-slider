@@ -31,7 +31,9 @@ new Vue({
             }
 
         ],
-        immagineCorrente: 0
+        immagineCorrente: 0,
+        
+      
 
     },
     //metodi per avanzare indice e quindi spostare class=attiva
@@ -52,16 +54,30 @@ new Vue({
             }
             this.immagineCorrente = succImmagine
         },
-    },
 
-    //bonus tempificato
-    mounted() {
-        setInterval(() => {
+        auto(){
+            this.timeMove = setInterval(() => {
+                this.precedente();
+    
+            }, 3000);
+
+        },
+
+        fermaAuto(){
+            clearInterval(this.timeMove)
+        }
+               
+    },
+/* 
+     //bonus tempificato
+     mounted() {
+        const timeMove = setInterval(() => {
             this.precedente();
 
-        }, 3000);
+        }, 3000); 
 
-    }
+    }, */
+    
 
 });
 

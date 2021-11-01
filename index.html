@@ -26,7 +26,7 @@
             <div class="row">
 
                 <div class="container-image">
-                    <template v-for="immagine, i in listaImmagini">
+                    <template v-for="(immagine, i) in listaImmagini">
                         <img :class="i===immagineCorrente ? 'attiva' : ' '" :src="immagine.url" :alt="'Img'+ (i+1)">
 
                         <div class="box-info " :class="i===immagineCorrente ? 'attiva' : ' '">
@@ -41,7 +41,7 @@
                     </template>
 
                 </div>
-                <div class="aside ">
+                <div class="aside " @mouseout="auto" @mouseover="fermaAuto" >
 
                     <div class="freccia freccia-su"><i class="fas fa-angle-up" @click="precedente"></i></div>
                     <div class="anteprima " v-for="immagine, i in listaImmagini"
@@ -51,9 +51,13 @@
                     <div class="freccia freccia-giu"><i class="fas fa-angle-down" @click="successiva"></i></div>
 
                 </div>
+
+
             </div>
-
-
+                <!-- codice 37 freccia sx , 39 freccia destra -->
+                <!-- quando sono nell'imput il passaggio auto matico si ferma, quando clicco fuori dall'input riparte -->
+            <input v-on:keyup.left="precedente" v-on:keyup.39="successiva"  @mouseenter="fermaAuto" @mouseleave="auto" placeholder="Clicca qui e usa freccia sx/dx"
+            style="position:fixed; left: 50%; bottom: 5%; transform: translateX(-50%); width: 200px; text-align: center;">
         </div>
 
 
