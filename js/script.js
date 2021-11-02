@@ -68,17 +68,21 @@ new Vue({
         }
                
     },
-/* 
-     //bonus tempificato
+
+     
      mounted() {
-        const timeMove = setInterval(() => {
-            this.precedente();
 
-        }, 3000); 
+        const container =document. getElementById("immaginiEvent");
+        container.focus();
+        
 
-    }, */
+        
+
+    }, 
     
 
 });
 
 
+const container =document. getElementById("immagini")
+       

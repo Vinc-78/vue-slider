@@ -23,25 +23,25 @@
 
         <div id="container">
 
-            <div class="row">
+            <div class="row" id="immaginiEvent"  @mouseout="auto" @mouseover="fermaAuto" v-on:keyup.left="precedente" v-on:keyup.39="successiva">
 
-                <div class="container-image">
-                    <template v-for="(immagine, i) in listaImmagini">
-                        <img :class="i===immagineCorrente ? 'attiva' : ' '" :src="immagine.url" :alt="'Img'+ (i+1)">
+                <div class="container-image" tabindex="0"  >
+                    <!-- in questo modo carico una sola immagine, mentre nell'aside uso v-for per caricarli tutti -->
+                        <img class="attiva" :src="listaImmagini[immagineCorrente].url" :alt="'Img'+ (immagineCorrente)">
 
-                        <div class="box-info " :class="i===immagineCorrente ? 'attiva' : ' '">
+                        <div class="box-info " class="attiva">
                             <div class="title">
-                                {{immagine.title}}
+                                {{listaImmagini[immagineCorrente].title}}
                             </div>
                             <div class="text">
-                                {{immagine.text}}
+                                {{listaImmagini[immagineCorrente].text}}
                             </div>
                         </div>
 
-                    </template>
+                    
 
                 </div>
-                <div class="aside " @mouseout="auto" @mouseover="fermaAuto" >
+                <div class="aside "  >
 
                     <div class="freccia freccia-su"><i class="fas fa-angle-up" @click="precedente"></i></div>
                     <div class="anteprima " v-for="immagine, i in listaImmagini"
@@ -54,10 +54,10 @@
 
 
             </div>
-                <!-- codice 37 freccia sx , 39 freccia destra -->
-                <!-- quando sono nell'imput il passaggio auto matico si ferma, quando clicco fuori dall'input riparte -->
-            <input v-on:keyup.left="precedente" v-on:keyup.39="successiva"  @mouseenter="fermaAuto" @mouseleave="auto" placeholder="Clicca qui e usa freccia sx/dx"
-            style="position:fixed; left: 50%; bottom: 5%; transform: translateX(-50%); width: 200px; text-align: center;">
+               <!--  codice 37 freccia sx , 39 freccia destra 
+                 quando sono nell'imput il passaggio auto matico si ferma, quando clicco fuori dall'input riparte 
+            <input v-on:keyup.left="precedente" v-on:keyup.39="successiva"  @click="fermaAuto" @mouseleave="auto" placeholder="Clicca qui e usa freccia sx/dx"
+            style="position:fixed; left: 50%; bottom: 5%; transform: translateX(-50%); width: 200px; text-align: center;"> -->
         </div>
 
 
